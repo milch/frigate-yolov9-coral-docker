@@ -26,4 +26,3 @@ WORKDIR /opt/frigate
 LABEL org.opencontainers.image.title="Frigate with YOLOv9 EdgeTPU Detector"
 LABEL org.opencontainers.image.description="Frigate NVR with YOLOv9 EdgeTPU detector plugin and all model variants"
 LABEL org.opencontainers.image.source="https://github.com/milch/frigate-yolov9-coral-docker"
-LABEL org.opencontainers.image.version="0.16.2-yolov9-1.5"

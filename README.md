@@ -87,10 +87,29 @@ docker build -t frigate-yolov9-coral:local .
 
 This repository includes a GitHub Actions workflow that automatically builds and pushes the Docker image to GitHub Container Registry (GHCR) on:
 - Pushes to the `main` branch (tagged as `latest`)
-- Version tags (e.g., `v1.0.0`)
+- Version tags matching upstream Frigate releases (e.g., `v0.16.2`)
 - Manual workflow dispatch
 
-The image will be available at: `ghcr.io/milch/frigate-yolov9-coral-docker:latest`
+### Available Tags
+
+The image will be available at `ghcr.io/milch/frigate-yolov9-coral-docker` with the following tags:
+- `latest` - Latest build from the main branch
+- `0.16.2`, `0.16`, `0` - Semantic version tags matching the upstream Frigate version
+- `main-<sha>` - SHA-based tags for main branch commits
+
+### Creating a New Release
+
+To create a new release that matches an upstream Frigate version:
+
+1. Update the `FROM` line in the Dockerfile to the desired Frigate version
+2. Commit the changes
+3. Create and push a git tag matching the Frigate version:
+   ```bash
+   git tag v0.16.2
+   git push origin v0.16.2
+   ```
+
+The GitHub Actions workflow will automatically build and publish the image with matching version tags.
 
 ## Credits
 
